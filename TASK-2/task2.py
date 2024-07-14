@@ -4,7 +4,7 @@ from sqlalchemy.types import BigInteger, String, DateTime, Boolean, Float, Integ
 
 pd.set_option('display.max_columns', None)
 
-# 1 & 2) Create a DataFrame from a Parquet file and Load the parquet file to a DataFrame with fastparquet
+# create database from parquet
 def read_parquet():
     df = pd.read_parquet("/root/INGESTION-DATA/dataset/yellow_tripdata_2023-01.parquet", engine='fastparquet')
 
@@ -44,7 +44,7 @@ def connect_database():
 
     return engine
 
-# 4) Define the data type schema
+# 4) Define the data type schema when using to_sql method.
 def to_sql(df, engine):
     df_schema = {
         'vendor_id': BigInteger,
